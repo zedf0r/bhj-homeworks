@@ -17,6 +17,25 @@ class Game {
   }
 
   registerEvents() {
+    function isValidKey(key) {
+      return key.length === 1 && /^[а-яА-Яa-zA-Z0-9]$/.test(key);
+    }
+    
+    document.addEventListener('keydown', (event) => {
+      const enteredSymbol = event.key.toLowerCase();
+      const currentSymbol = this.currentSymbol.textContent.toLowerCase();
+  
+      if (!isValidKey(event.key)){
+        return
+      }
+
+      if (enteredSymbol === currentSymbol) {
+        this.success();
+      } else {
+        this.fail();
+      }
+      });
+    
     /*
       TODO:
       Написать обработчик события, который откликается
