@@ -1,15 +1,17 @@
-const visibleBlock = document.querySelector('.reveal')
+const visibleBlock = document.querySelectorAll('.reveal')
 
-document.addEventListener('scroll', function() {
-    const {top, bottom} = visibleBlock.getBoundingClientRect();
-
-    if (bottom < 0) {
-        return false
-    }
-
-    if (top > innerHeight) {
-        return false
-    }
-
-    visibleBlock.classList.add('reveal_active')
+visibleBlock.forEach((element) => {
+    document.addEventListener('scroll', function() {
+        const {top, bottom} = element.getBoundingClientRect();
+    
+        if (bottom < 0) {
+            return element.classList.remove('reveal_active')
+        }
+    
+        if (top > innerHeight) {
+            return element.classList.remove('reveal_active')
+        }
+    
+        element.classList.add('reveal_active')
+    })
 })
