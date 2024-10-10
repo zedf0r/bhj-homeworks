@@ -8,18 +8,15 @@ form.addEventListener('submit', (event) => {
 })
 
 function createElement() {
-    const task = document.createElement('div');
-    const taskTitle = document.createElement('div');
-    const taskClose = document.createElement('a');
-
-    task.classList.add('task');;
-    taskTitle.classList.add('task__title');
-    taskTitle.innerText = input.value;
-    taskClose.classList.add('task__remove');
-    taskClose.textContent = '×'
+    tasksList.insertAdjacentHTML('afterbegin', `
+            <div class="task">
+              <div class="task__title">${input.value}</div>
+              <a href="#" class="task__remove">&times;</a>
+            </div>
+        `)
+    const taskClose = document.querySelector('.task__remove');
+    const task = document.querySelector('.task')
     
-    task.append(taskTitle, taskClose);
-    tasksList.append(task);
 
     taskClose.addEventListener('click', (event) => {
         event.preventDefault();
