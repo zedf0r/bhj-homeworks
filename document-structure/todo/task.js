@@ -8,20 +8,26 @@ form.addEventListener('submit', (event) => {
 })
 
 function createElement() {
-    tasksList.insertAdjacentHTML('afterbegin', `
+    if (input.value.trim()) {
+        tasksList.insertAdjacentHTML('afterbegin', `
             <div class="task">
               <div class="task__title">${input.value}</div>
               <a href="#" class="task__remove">&times;</a>
             </div>
         `)
-    const taskClose = document.querySelector('.task__remove');
-    const task = document.querySelector('.task')
+        const taskClose = document.querySelector('.task__remove');
+        const task = document.querySelector('.task')
+        
+
+        taskClose.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            task.remove();
+        })
+        form.reset();
+    } else {
+        alert('Поле пустое')
+        form.reset();
+    }
     
-
-    taskClose.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        task.remove();
-    })
-    form.reset();
 }

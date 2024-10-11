@@ -8,7 +8,7 @@ product.forEach(item => {
     
 
     productControlDec.addEventListener('click', function(){
-        productValue.textContent = Number(productValue.textContent) <= 1 ? productValue.textContent = 1 : Number(productValue.textContent) - 1;
+        productValue.textContent = Number(productValue.textContent) <= 1 ? 1 : Number(productValue.textContent) - 1;
     })
 
     productControlInc.addEventListener('click', function(){
@@ -19,7 +19,6 @@ product.forEach(item => {
 
     productAdd.addEventListener('click', function(){
         const originalImage = item.querySelector('img').getAttribute('src');
-        console.log(originalImage)
         const cardProducts = document.querySelector('.cart__products');
         const existProduct = cardProducts.querySelector(`.cart__product[data-id="${productAtt}"]`);
 
