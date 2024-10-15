@@ -11,7 +11,7 @@ form.addEventListener('submit', (event) => {
     })
 
     xhr.addEventListener('load', () => {
-        alert('Загузка завершена');
+        alert('Загрузка завершена');
     })
 
     xhr.addEventListener('error', () => {

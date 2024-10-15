@@ -8,3 +8,19 @@ textarea {
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
 }
+
+.clear_area {
+  display: flex;
+  margin: 0 auto;
+  width: 150px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  transition: background-color .5s;
+}
+
+.clear_area:hover {
+  background-color: blue;
+}
